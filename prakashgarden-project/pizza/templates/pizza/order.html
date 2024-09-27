@@ -1,8 +1,8 @@
 <h1>Order a Pizza</h1>
 
+{% comment %} Adding file/files through form we need to add enctype="multipart/form-data" {% endcomment %}
 
-
-<form action="{% url 'order' %}" class="" method="post">
+<form enctype='multipart/form-data' action="{% url 'order' %}" class="" method="post">
     {% csrf_token %}
     {{ pizzaform.as_p }}
     <input type="submit" value="Order">
