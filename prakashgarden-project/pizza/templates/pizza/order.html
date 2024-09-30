@@ -14,3 +14,6 @@ Want more than one Pizza?
     <input type="submit" value="Get Pizzas">
 </form>
 <h2>{{ note }}</h2>
+{% if created_pizza_pk %}
+<a href="{% url 'edit_order' created_pizza_pk %}" > Edit Your Order </a>
+{% endif %}
