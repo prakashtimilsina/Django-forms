@@ -41,3 +41,5 @@ def pizzas(request):
     else:
         return render(request, 'pizza/pizzas.html', {'formset': formset})
 
+def edit_order(request, pk):
+    pizza = Pizza.objects.get(pk=pk)
