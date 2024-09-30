@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import PizzaForm, MultiplePizzaForm
 from django.forms import formset_factory
+from . models import Pizza 
 
 def home(request):
     return render(request, 'pizza/home.html')
@@ -43,3 +44,10 @@ def pizzas(request):
 
 def edit_order(request, pk):
     pizza = Pizza.objects.get(pk=pk)
+    form = PizzaForm(instance=pizza)
+    if request.method == 'POST':
+        filled_form = PizzaForm(request.POST, instance=pizza)
+        if filled_form.is_valid():
+            filled_form.save()
+            form = filled_form
+    return render(request, 'pizza/edit_order.html', {'pizzaform': form, 'pizza': pizza})
