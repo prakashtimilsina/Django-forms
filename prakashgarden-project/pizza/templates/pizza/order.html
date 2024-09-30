@@ -2,10 +2,15 @@
 
 {% comment %} Adding file/files through form we need to add enctype="multipart/form-data" {% endcomment %}
 
-<form enctype='multipart/form-data' action="{% url 'order' %}" class="" method="post">
+<form action="{% url 'order' %}" class="" method="post">
     {% csrf_token %}
     {{ pizzaform.as_p }}
     <input type="submit" value="Order">
 </form>
-
+<br><br>
+Want more than one Pizza?
+<form action="{% url 'pizzas' %}" class="" method="get">
+    {{ multiple_form }}
+    <input type="submit" value="Get Pizzas">
+</form>
 <h2>{{ note }}</h2>
