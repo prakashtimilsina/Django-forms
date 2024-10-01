@@ -1,4 +1,7 @@
-<h1>Order Multiple Pizzas</h1>
+{% extends "pizza/base.html" %}
+{% block body %}
+<div class="container">
+<h1 class="text-center">Order Multiple Pizzas</h1>
 <h2> {{ note }} </h2>
 
 <form action="{% url 'pizzas' %}" class="" method='post'>
@@ -12,6 +15,8 @@
     <br><br>
 
     {% endfor %}
-    <input type="submit" class="" value="Order Pizzas">
+    <input type="submit" class="btn btn-primary mt-4" value="Order Pizzas">
 
 </form>
+</div>
+{% endblock %}

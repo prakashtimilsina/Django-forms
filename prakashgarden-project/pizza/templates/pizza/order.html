@@ -1,7 +1,7 @@
 {% extends "pizza/base.html" %}
-
 {% block body %}
 {% load widget_tweaks %}
+
     <div class="container">
     <h1 class="text-center ">Order a Pizza</h1>
 
@@ -37,9 +37,9 @@ Want more than one Pizza?
     {{ multiple_form }}
     <input type="submit" value="Get Pizzas" class="btn btn-primary mt-4">
 </form>
-<h2>{{ note }}</h2>
+<h2 class="mt-4">{{ note }}</h2>
 {% if created_pizza_pk %}
-<a href="{% url 'edit_order' created_pizza_pk %}" > Edit Your Order </a>
+<a href="{% url 'edit_order' created_pizza_pk %}" class="btn btn-primary mt-4"> Edit Your Order </a>
 {% endif %}
 </div>
 

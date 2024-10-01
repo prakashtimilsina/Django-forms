@@ -34,6 +34,7 @@ def pizzas(request):
         if filled_formset.is_valid():
 
             for form in filled_formset:
+                form.save()
                 print(f"topping 1 : {form.cleaned_data['topping1']}")
             note = 'Pizzas have been ordered'
         else:
